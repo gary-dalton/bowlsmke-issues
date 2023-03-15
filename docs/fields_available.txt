@@ -1,0 +1,105 @@
+Most field names are self explanatory. Basically, each record has ID, created_date, and updated_date fields.
+Some fields have an explanation next to them in parentheses.
+
+MEMBER
+    id
+    first_name
+    last_name
+    email
+    telephone
+    birthdate
+    member_since
+    timezone
+    gender
+    address
+    address_apt
+    city
+    state
+    zipcode
+    club
+    special_skill
+    occupation
+    volunteer_exclusion (won't be required to volunteer)
+    created_date
+    updated_date
+
+MEMBERSHIP
+(Will store previous memberships for a transaction history. Each membership is owned by a member.)
+    id
+    order_number
+    membership_type
+    expires
+    timezone
+    amount_donate
+    amount_due
+    leagues (stored as a string, so we can't use it much yet)
+    created_date
+    updated_date
+
+VOLUNTEER
+    parent_task (e.g House or Greens)
+    task_name
+    task_description
+    training_req
+    experience_req
+    purchase_req
+    task_hours
+
+GROUP EVENTS
+    id
+    user_id (only if a logged in user created the event)
+    order_number
+    organization
+    contact_name
+    contact_email
+    contact_telephone
+    contact_tel_ext
+    contact_address
+    contact_apt
+    contact_city
+    contact_state
+    contact_zipcode
+    event_date
+    event_start
+    event_end
+    timezone
+    group_size
+    catered (T/F)
+    catered_vendor
+    tables (T/F)
+    tables_vendor
+    other (open text field)
+    consent
+    consent_name
+    special_payment_description (for when the Coordinator overrides the amount_due)
+    amount_due
+    amount_paid
+    created_date
+    updated_date
+
+
+PAYMENTS
+Each payment is tied to a membership or group event. They will have the same order number.
+    id
+    order_number
+    date_paid
+    gateway (Paypal, credit, Zelle)
+    order_id (from gateway)
+    amount_paid
+    fee_amount
+    net_amount
+    currency (default USD, Paypal field)
+    mode (Paypal field)
+    status (Matches PayPal, i.e. CREATED)
+    created_date
+    updated_date
+
+LEAGUES
+Leagues will be used more extensively in later phases of this project.
+    id
+    league_name
+    league_description
+    term_start
+    term_end
+    timezone
+    capacity
